@@ -48,7 +48,14 @@ class App extends Component {
   };
 
   handleEdit = (id) => {
-    console.log(`Edit ${id}`);
+    const filteredItems = this.state.items.filter((item) => item.id !== id);
+    const SelectedItem = this.state.items.find((item) => item.id === id);
+    this.setState({
+      items: filteredItems,
+      item: SelectedItem.title,
+      id: id,
+      editItem: true,
+    });
   };
 
   render() {
